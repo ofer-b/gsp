@@ -8,6 +8,6 @@
     <context:component-scan base-package="/"/>
 
 
-    <bean id="sampleResource" class="SampleResource"></bean>
-    <bean id="testResource" class="TestResource"></bean>
+    <bean id="sampleResource" class="org.hp.com.SampleResource"></bean>
+
 </beans>
