@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- const.xml -->
+<config>
+    <database>
+        <url>localhost</url>
+        <port>1521</port>
+        <login>system</login>
+        <password>manager</password>
+    </database>
+</config>
