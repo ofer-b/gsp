@@ -1,0 +1,4 @@
+gsp
+===
+
+global service repository
