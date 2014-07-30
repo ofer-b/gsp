@@ -1,6 +1,5 @@
 package org.hp.com.resources;
 
-import com.hp.gsp.AbstractResource;
 import org.hp.com.entities.SampleEntity;
 
 import javax.ws.rs.GET;
@@ -16,7 +15,7 @@ import javax.ws.rs.core.MediaType;
  *
  */
 @Path("resource")
-public class SampleResource extends AbstractResource<SampleEntity> {
+public class SampleResource extends AbstractResourceImpl<SampleEntity> {
 
 
     @GET

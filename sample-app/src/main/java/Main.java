@@ -1,77 +1,51 @@
-//import com.sun.jersey.spi.spring.container.servlet.SpringServlet;
-import org.glassfish.grizzly.http.server.HttpHandlerChain;
-import org.glassfish.grizzly.http.server.HttpServer;
-import org.glassfish.grizzly.http.server.NetworkListener;
-import org.glassfish.grizzly.http.server.StaticHttpHandler;
-import org.glassfish.grizzly.servlet.ServletHandler;
-import org.glassfish.grizzly.servlet.ServletRegistration;
-import org.glassfish.grizzly.servlet.WebappContext;
-import org.glassfish.jersey.server.ResourceConfig;
-import org.hp.com.exception.CustomExceptionMapper;
-import org.hp.com.resources.JerseyResource;
+import java.io.File;
+import java.net.URL;
 
-import java.io.IOException;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.handler.*;
+import org.eclipse.jetty.webapp.WebAppContext;
 
 /**
- * The sample demonstrates how to make Jersey-Spring
- * integration work on top of Grizzly 2, including static pages served from
- * a folder or from within a jar file.
+ * 
+ * This class launches the web application in an embedded Jetty container.
+ * This is the entry point to your application. The Java command that is used for
+ * launching should fire this main method.
  *
- * @author Alexey Stashok
+ * @author John Simone
  */
 public class Main {
-
-    public static void main(String[] args) throws IOException {
-//        Initialize Grizzly HttpServer
-
-        HttpServer server = new HttpServer();
-        NetworkListener listener = new NetworkListener("grizzly2", "localhost", 8080);
-        server.addListener(listener);
-
-        server.getServerConfiguration().addHttpHandler(new HttpHandlerChain(server));
-
-
-//
-//        // Initialize and add Spring-aware Jersey resource
-//        WebappContext ctx = new WebappContext("ctx", "/api");
-//        final ServletRegistration reg = ctx.addServlet("spring", new SpringServlet());
-//        reg.addMapping("/*");
-//        ctx.addContextInitParameter("contextConfigLocation", "classpath:spring-context.xml");
-//        ctx.addListener("org.springframework.web.context.ContextLoaderListener");
-//        ctx.addListener("org.springframework.web.context.request.RequestContextListener");
-//        ctx.deploy(server);
-//
-        // Add the StaticHttpHandler to serve static resources from the static1 folder
-//        server.getServerConfiguration().addHttpHandler(
-//                new StaticHttpHandler("src/main/resources/webapp/static1/"), "/static");
-//
-////        // Add the CLStaticHttpHandler to serve static resources located at
-////        // the static2 folder from the jar file jersey1-grizzly2-spring-1.0-SNAPSHOT.jar
-////        server.getServerConfiguration().addHttpHandler(
-////                new CLStaticHttpHandler(new URLClassLoader(new URL[] {
-////                        new File("target/jersey1-grizzly2-spring-1.0-SNAPSHOT.jar").toURI().toURL()}), "webapp/static2/"),
-////                "/jarstatic");
-//
-        try {
-            server.start();
-
-////            System.out.println("In order to test the server please try the following urls:");
-////            System.out.println("http://localhost:3388/api to see the default TestResource.getIt() resource");
-////            System.out.println("http://localhost:3388/api/test to see the TestResource.test() resource");
-////            System.out.println("http://localhost:3388/api/test2 to see the TestResource.test2() resource");
-////            System.out.println("http://localhost:3388/static/ to see the index.html from the webapp/static1 folder");
-////            System.out.println("http://localhost:3388/jarstatic/ to see the index.html from the webapp/static2 folder served from the jar file");
-//
-            System.out.println();
-            System.out.println("Press enter to stop the server...");
-            System.in.read();
-        } finally {
-            server.shutdownNow();
+    
+    /**
+     * @param args
+     */
+    public static void main(String[] args) throws Exception{
+        String webappDirLocation = "jetty/src/main/webapp/";
+        
+        //The port that we should run on can be set into an environment variable
+        //Look for that variable and default to 8080 if it isn't there.
+        String webPort = System.getenv("PORT");
+        if(webPort == null || webPort.isEmpty()) {
+            webPort = "8080";
         }
 
+        Server server = new Server(Integer.valueOf(webPort));
+        WebAppContext root = new WebAppContext();
 
-
-
-
+        root.setContextPath("/");
+        root.setDescriptor(webappDirLocation+"/WEB-INF/web.xml");
+        root.setResourceBase(webappDirLocation);
+        
+        //Parent loader priority is a class loader setting that Jetty accepts.
+        //By default Jetty will behave like most web containers in that it will
+        //allow your application to replace non-server libraries that are part of the
+        //container. Setting parent loader priority to true changes this behavior.
+        //Read more here: http://wiki.eclipse.org/Jetty/Reference/Jetty_Classloading
+        root.setParentLoaderPriority(true);
+        
+        server.setHandler(root);
+        
+        server.start();
+        server.join();   
     }
+
 }

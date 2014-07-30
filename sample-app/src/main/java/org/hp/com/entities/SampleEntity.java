@@ -1,12 +1,17 @@
 package org.hp.com.entities;
 
+
+import org.hp.com.pojo.Entity;
+
 /**
  * Created by ofer on 29/07/14.
+ *
  */
-public class SampleEntity {
+public class SampleEntity implements Entity {
     private int id;
     private String name;
 
+    @Override
     public int getId() {
         return id;
     }
