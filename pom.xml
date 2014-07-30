@@ -14,6 +14,7 @@
         <module>dao</module>
         <module>configuration</module>
         <module>sample-app</module>
+        <module>sample-server</module>
     </modules>
 
 

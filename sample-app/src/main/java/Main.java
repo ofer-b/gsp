@@ -1,8 +1,14 @@
 //import com.sun.jersey.spi.spring.container.servlet.SpringServlet;
+import org.glassfish.grizzly.http.server.HttpHandlerChain;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.grizzly.http.server.NetworkListener;
+import org.glassfish.grizzly.http.server.StaticHttpHandler;
+import org.glassfish.grizzly.servlet.ServletHandler;
 import org.glassfish.grizzly.servlet.ServletRegistration;
 import org.glassfish.grizzly.servlet.WebappContext;
+import org.glassfish.jersey.server.ResourceConfig;
+import org.hp.com.exception.CustomExceptionMapper;
+import org.hp.com.resources.JerseyResource;
 
 import java.io.IOException;
 
@@ -16,10 +22,15 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-//        // Initialize Grizzly HttpServer
-//        HttpServer server = new HttpServer();
-//        NetworkListener listener = new NetworkListener("grizzly2", "localhost", 8080);
-//        server.addListener(listener);
+//        Initialize Grizzly HttpServer
+
+        HttpServer server = new HttpServer();
+        NetworkListener listener = new NetworkListener("grizzly2", "localhost", 8080);
+        server.addListener(listener);
+
+        server.getServerConfiguration().addHttpHandler(new HttpHandlerChain(server));
+
+
 //
 //        // Initialize and add Spring-aware Jersey resource
 //        WebappContext ctx = new WebappContext("ctx", "/api");
@@ -30,9 +41,9 @@ public class Main {
 //        ctx.addListener("org.springframework.web.context.request.RequestContextListener");
 //        ctx.deploy(server);
 //
-////        // Add the StaticHttpHandler to serve static resources from the static1 folder
-////        server.getServerConfiguration().addHttpHandler(
-////                new StaticHttpHandler("src/main/resources/webapp/static1/"), "/static");
+        // Add the StaticHttpHandler to serve static resources from the static1 folder
+//        server.getServerConfiguration().addHttpHandler(
+//                new StaticHttpHandler("src/main/resources/webapp/static1/"), "/static");
 //
 ////        // Add the CLStaticHttpHandler to serve static resources located at
 ////        // the static2 folder from the jar file jersey1-grizzly2-spring-1.0-SNAPSHOT.jar
@@ -41,9 +52,9 @@ public class Main {
 ////                        new File("target/jersey1-grizzly2-spring-1.0-SNAPSHOT.jar").toURI().toURL()}), "webapp/static2/"),
 ////                "/jarstatic");
 //
-//        try {
-//            server.start();
-//
+        try {
+            server.start();
+
 ////            System.out.println("In order to test the server please try the following urls:");
 ////            System.out.println("http://localhost:3388/api to see the default TestResource.getIt() resource");
 ////            System.out.println("http://localhost:3388/api/test to see the TestResource.test() resource");
@@ -51,12 +62,15 @@ public class Main {
 ////            System.out.println("http://localhost:3388/static/ to see the index.html from the webapp/static1 folder");
 ////            System.out.println("http://localhost:3388/jarstatic/ to see the index.html from the webapp/static2 folder served from the jar file");
 //
-//            System.out.println();
-//            System.out.println("Press enter to stop the server...");
-//            System.in.read();
-//        } finally {
-//            server.shutdownNow();
-//        }
+            System.out.println();
+            System.out.println("Press enter to stop the server...");
+            System.in.read();
+        } finally {
+            server.shutdownNow();
+        }
+
+
+
 
 
     }

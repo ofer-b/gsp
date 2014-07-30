@@ -1,4 +1,4 @@
-package org.hp.com;
+package org.hp.com.entities;
 
 /**
  * Created by ofer on 29/07/14.

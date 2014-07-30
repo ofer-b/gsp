@@ -1,6 +1,7 @@
-package org.hp.com;
+package org.hp.com.resources;
 
 import com.hp.gsp.AbstractResource;
+import org.hp.com.entities.SampleEntity;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

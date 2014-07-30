@@ -37,29 +37,22 @@
  * only if the new code is made subject to such option by the copyright
  * holder.
  */
-package org.hp.com;
+package org.hp.com.exception;
 
-import org.glassfish.jersey.server.ResourceConfig;
-import org.hp.com.exception.CustomExceptionMapper;
-import org.hp.com.resources.JerseyResource;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.ext.ExceptionMapper;
+import javax.ws.rs.ext.Provider;
 
 /**
- * Spring HelloWorld Web Application configuration.
+ * Exception mapper to convert {@link IllegalArgumentException} into a textual response.
  *
- * @author Jakub Podlesak (jakub.podlesak at oracle.com)
+ * @author Marko Asplund (marko.asplund at yahoo.com)
  */
-public class SampleApplication extends ResourceConfig {
+@Provider
+public class CustomExceptionMapper implements ExceptionMapper<IllegalArgumentException> {
 
-    /**
-     * Register JAX-RS application components.
-     */
-    public SampleApplication() {
-       // register(RequestContextFilter.class);
-        register(JerseyResource.class);
-//        register(SpringSingletonResource.class);
-//        register(SpringRequestResource.class);
-        register(CustomExceptionMapper.class);
-
-        packages("org.hp.com.resources");
+    @Override
+    public Response toResponse(IllegalArgumentException exception) {
+        return Response.ok("Illegal Argument Exception Caught").build();
     }
 }

@@ -27,6 +27,7 @@
         <module name="jdbc" />
         <module name="rest-server" />
         <module name="sample-app" />
+        <module name="sample-server" />
         <module name="web-app" />
       </profile>
     </annotationProcessing>

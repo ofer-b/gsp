@@ -1,8 +1,5 @@
-package org.hp.com;
+package org.hp.com.resources;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
