@@ -18,10 +18,12 @@
 
     <modules>
         <module>jdbc</module>
-        <module>dao</module>
+        <module>dao-impl</module>
         <module>configuration</module>
         <module>rest-server</module>
-        <module>jetty</module>
+        <module>sample-app</module>
+        <module>gsp-api</module>
+        <module>dao-api</module>
     </modules>
 
 

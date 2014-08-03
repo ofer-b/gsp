@@ -24,10 +24,14 @@
         <processorPath useClasspath="true" />
         <module name="configuration" />
         <module name="dao" />
+        <module name="dao-api" />
+        <module name="dao-impl" />
+        <module name="gsp-api" />
         <module name="jdbc" />
         <module name="jersey-quickstart-grizzly" />
         <module name="jetty" />
         <module name="rest-server" />
+        <module name="sample-app" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

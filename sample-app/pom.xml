@@ -8,18 +8,30 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <name>jetty</name>
-    <artifactId>jetty</artifactId>
+    <name>sample-app</name>
+    <artifactId>sample-app</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
 
-        <!-- gsp -->
+        <!-- gsp dependencies -->
         <dependency>
             <groupId>com.hp.gsp</groupId>
             <artifactId>rest-server</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
+
         </dependency>
+
+        <!--load gsp impl modules-->
+        <dependency>
+            <groupId>com.hp.gsp</groupId>
+            <artifactId>dao-impl</artifactId>
+            <version>${project.version}</version>
+
+        </dependency>
+
+
+        <!-- gsp dependencies -->
 
 
         <!-- Servlet API -->

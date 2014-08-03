@@ -19,7 +19,6 @@
       <set>
         <option value="$PROJECT_DIR$/jersey-quickstart-grizzly/pom.xml" />
         <option value="$PROJECT_DIR$/jetty-runner/pom.xml" />
-        <option value="$PROJECT_DIR$/sample-app/pom.xml" />
       </set>
     </option>
   </component>
