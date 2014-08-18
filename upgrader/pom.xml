@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>generic-services-platform</artifactId>
+        <groupId>com.hp.gsp</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>upgrader</artifactId>
+
+    <properties>
+        <liquibase-plugin-version>1.9.5.0</liquibase-plugin-version>
+        <liquibase-core-version>3.2.2</liquibase-core-version>
+        <liquibase-maven-plugin-version>3.2.2</liquibase-maven-plugin-version>
+    </properties>
+
+
+
+    <dependencies>
+        <!-- liquibase -->
+        <!--<dependency>-->
+            <!--<groupId>org.liquibase</groupId>-->
+            <!--<artifactId>liquibase-plugin</artifactId>-->
+            <!--<version>${liquibase-plugin-version}</version>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>${liquibase-core-version}</version>
+        </dependency>
+
+        <!-- AOP dependency, used in Spring caching -->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>${cglib-version}</version>
+        </dependency>
+
+
+        <!-- gsp -->
+        <dependency>
+            <groupId>com.hp.gsp</groupId>
+            <artifactId>gsp-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.hp.gsp</groupId>
+            <artifactId>jdbc</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- testing -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${org.springframework-version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!--<plugin>-->
+                <!--<groupId>org.liquibase</groupId>-->
+                <!--<artifactId>liquibase-maven-plugin</artifactId>-->
+                <!--<version>${liquibase-maven-plugin-version}</version>-->
+                <!--<configuration>-->
+                    <!--<propertyFile>liquibase.properties</propertyFile>-->
+                <!--</configuration>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>generate-schema</id>-->
+                        <!--<phase>pre-integration-test</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>update</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+        </plugins>
+    </build>
+
+
+</project>

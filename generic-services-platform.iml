@@ -5,6 +5,7 @@
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/jetty/target/classes/gsp-rest-context.xml</file>
+          <file>file://$MODULE_DIR$/jdbc/src/main/resources/gsp-data-source-context.xml</file>
         </fileset>
       </configuration>
     </facet>

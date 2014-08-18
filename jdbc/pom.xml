@@ -11,40 +11,68 @@
 
     <artifactId>jdbc</artifactId>
 
-    <dependencies>
 
-    <!-- Spring framework -->
+
+    <dependencies>
+        <!-- Spring framework -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>3.0.7.RELEASE</version>
+            <version>${org.springframework-version}</version>
         </dependency>
 
-
-        <!--CrudRepository -->
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.data</groupId>-->
-            <!--<artifactId>spring-data-commons-core</artifactId>-->
-            <!--<version>1.4.1.RELEASE</version>-->
-        <!--</dependency>-->
-
+        <!-- gsp -->
         <dependency>
             <groupId>com.hp.gsp</groupId>
             <artifactId>configuration</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
 
+
+        <!-- HikaryCP - connection pool-->
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
-            <version>1.3.8</version>
+            <version>${hikaricp-version}</version>
         </dependency>
 
+        <!--data direct drivers-->
+        <!--<dependency>-->
+            <!--<groupId>com.datadirect</groupId>-->
+            <!--<artifactId>mcsqlserver</artifactId>-->
+            <!--<version>5.1.0.000017</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>com.datadirect</groupId>-->
+            <!--<artifactId>mcoracle</artifactId>-->
+            <!--<version>5.1.1.000080</version>-->
+        <!--</dependency>-->
 
+        <!-- native oracle driver-->
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc7</artifactId>
+            <version>12.1.0.1</version>
+        </dependency>
+
+        <!-- AOP dependency, used in Spring caching -->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>${cglib-version}</version>
+        </dependency>
+
+        <!-- testing -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>${junit-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${org.springframework-version}</version>
             <scope>test</scope>
         </dependency>
 

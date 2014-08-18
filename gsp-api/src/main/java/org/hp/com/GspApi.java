@@ -2,6 +2,7 @@ package org.hp.com;
 
 /**
  * Created by borshtei on 31-Jul-14.
+ *
  */
 public final class GspApi {
 

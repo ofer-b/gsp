@@ -27,11 +27,13 @@
         <module name="dao-api" />
         <module name="dao-impl" />
         <module name="gsp-api" />
+        <module name="installer" />
         <module name="jdbc" />
         <module name="jersey-quickstart-grizzly" />
         <module name="jetty" />
         <module name="rest-server" />
         <module name="sample-app" />
+        <module name="upgrader" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
