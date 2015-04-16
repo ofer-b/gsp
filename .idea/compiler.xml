@@ -37,11 +37,18 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="configuration" target="1.5" />
+      <module name="dao-api" target="1.5" />
+      <module name="dao-impl" target="1.5" />
+      <module name="generic-services-platform" target="1.5" />
+      <module name="gsp-api" target="1.5" />
+      <module name="installer" target="1.5" />
+      <module name="jdbc" target="1.5" />
       <module name="jersey-quickstart-grizzly" target="1.6" />
       <module name="jetty" target="1.7" />
       <module name="rest-server" target="1.7" />
       <module name="sample-app" target="1.7" />
+      <module name="upgrader" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
-

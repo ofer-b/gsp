@@ -18,12 +18,12 @@ import javax.ws.rs.core.MediaType;
 public class SampleResource<SampleEntity> extends AbstractResourceImpl<SampleEntity> {
 
 
-//    @GET
-//    @Produces(MediaType.TEXT_PLAIN)
-//    public String getHello(@Context HttpHeaders headers, @QueryParam("name") String name) {
-//        if(name == null) {
-//            throw new IllegalArgumentException("name is illegal");
-//        }
-//        return "Hello " + name;
-//    }
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getHello(@Context HttpHeaders headers, @QueryParam("name") String name) {
+        if(name == null) {
+            throw new IllegalArgumentException("name is illegal");
+        }
+        return "Hello " + name;
+    }
 }

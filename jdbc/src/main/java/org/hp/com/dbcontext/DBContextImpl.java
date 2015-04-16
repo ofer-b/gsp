@@ -6,13 +6,18 @@ package org.hp.com.dbcontext;
  */
 public class DBContextImpl implements DBContext {
 
-    @Override
+    private final String schemaName;
+
+    public DBContextImpl(String schemaName) {
+        this.schemaName = schemaName;
+    }
+
     public DbType getDbType() {
         return null;
     }
 
-    @Override
+
     public String getDbSchemaName() {
-        return null;
+        return schemaName;
     }
 }
