@@ -16,9 +16,8 @@ public class JDBCTemplateFactory {
     @Autowired
     private DataSourceFactory dataSourceFactory;
 
-    public JDBCTemplate getJdbcTemplate(DBContext dbContext) {
-        String dbSchemaName = dbContext.getDbSchemaName();
-        DataSource dataSource = dataSourceFactory.getOrCreateDataSource(dbSchemaName);
+    public JDBCTemplate getJdbcTemplate(ConnectionProperties connectionProperties) {
+        DataSource dataSource = dataSourceFactory.getOrCreateDataSource(connectionProperties);
         return new JDBCTemplateImpl(dataSource);
     }
 
