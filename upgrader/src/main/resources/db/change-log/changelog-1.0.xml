@@ -7,33 +7,52 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <!--<preConditions>-->
-        <!--<runningAs username="sample"/>-->
+    <!--<runningAs username="sample"/>-->
     <!--</preConditions>-->
 
     <changeSet id="1" author="ofer">
         <createTable tableName="users">
-            <column name="id" type="int">
+            <column name="us_id" type="int">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="name" type="varchar(50)">
+            <column name="us_name" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="active" type="boolean" defaultValueBoolean="true"/>
-            <column name="address" type="int" />
+            <column name="us_active" type="boolean" defaultValueBoolean="true"/>
+            <column name="us_address" type="int"/>
         </createTable>
+
+        <!-- NOTE: this can be done via outside sql file. see http://stackoverflow.com/a/12210911 -->
+        <insert tableName="users">
+            <column name="us_id" valueNumeric="10" />
+            <column name="us_name" value="user A"/>
+            <column name="us_active" valueBoolean="true"/>
+            <column name="us_address" valueNumeric="1" autoIncrement="1"/>
+        </insert>
+
 
         <createTable tableName="address">
-            <column name="id" type="int">
+            <column name="ad_id" type="int">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="street" type="varchar(50)">
+            <column name="ad_street" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="zip" type="varchar(50)">
-                <constraints nullable="false"/>
+            <column name="ad_zip" type="varchar(50)">
+                <constraints nullable="true"/>
             </column>
         </createTable>
 
+        <insert tableName="address">
+            <column name="ad_id" valueNumeric="10" autoIncrement="1"/>
+            <column name="ad_street" value="address  A"/>
+
+        </insert>
+
+
+        <customChange class="org.hp.com.AddZipToAddressIfEmpty">
+              <param name="newZipCode" value="5555"/>
+        </customChange>
 
 
     </changeSet>

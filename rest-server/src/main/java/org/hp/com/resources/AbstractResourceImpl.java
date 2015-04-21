@@ -2,9 +2,7 @@ package org.hp.com.resources;
 
 import org.hp.com.GspApi;
 import org.hp.com.ReadService;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.swing.text.html.parser.Entity;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;

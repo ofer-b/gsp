@@ -10,12 +10,15 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/rest-server/pom.xml" />
         <option value="$PROJECT_DIR$/jetty/pom.xml" />
+        <option value="$PROJECT_DIR$/jetty-runner/pom.xml" />
+        <option value="$PROJECT_DIR$/web-app/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/dao-api/pom.xml" />
+        <option value="$PROJECT_DIR$/dao-impl/pom.xml" />
         <option value="$PROJECT_DIR$/jersey-quickstart-grizzly/pom.xml" />
-        <option value="$PROJECT_DIR$/jetty-runner/pom.xml" />
       </set>
     </option>
   </component>

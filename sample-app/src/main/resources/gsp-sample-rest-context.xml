@@ -10,7 +10,7 @@
 
 
 
-    <bean id="sampleResource" class="org.hp.com.resources.SampleResource"/>
+    <bean id="sampleResource" class="org.hp.com.resources.UserResource"/>
 
 
 

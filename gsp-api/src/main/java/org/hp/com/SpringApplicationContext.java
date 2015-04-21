@@ -1,4 +1,4 @@
-package org.hp.com;// org.hp.com.SpringApplicationContext.java
+package org.hp.com;// SpringApplicationContext.java
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

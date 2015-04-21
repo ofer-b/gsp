@@ -17,6 +17,11 @@
             <artifactId>jdbc</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.hp.gsp</groupId>
+            <artifactId>configuration</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
 </project>
